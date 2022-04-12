@@ -1,8 +1,19 @@
 import styled, { createGlobalStyle } from 'styled-components';
-import { Fragment } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import Filter from '../Components/Filter';
+import Card from '../Components/Card'; 
+import api from '../Service/api'; 
 
 const Home = () => {
+
+    const [pokemonList, setPokemonList] = useState<any[]>([]);
+    
+    useEffect(() => {
+        api.get('/pokemon').then((response) => {
+            setPokemonList(response.data);
+        });
+    }, []);
+
     return (
     <Fragment>
         <GlobalStyle />
@@ -13,7 +24,9 @@ const Home = () => {
                 </Logo>
                 <Filter />
                 <CardsHolder>
-
+                        {pokemonList.map(pokemon => {
+                          return <Card name={pokemon.name} types={[pokemon.type1, pokemon.type2]}/> /*<Paragraph> <p key={pokemon.pokedex_number}>{pokemon.name}</p> </Paragraph>*/;
+                        })}
                 </CardsHolder>
             </Content>
         </Container>
@@ -22,33 +35,34 @@ const Home = () => {
   };
 
 const GlobalStyle = createGlobalStyle`
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    /* background-color: #4d4dff; */
-}
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #4d4dff;
+        z-index: -2;
+    }
 `;
 
 const Container = styled.section`
     display: flex;
     flex-direction: column;
     text-align: center;
-    height: 100vh;
-    background-color: #4d4dff;
+    //min-width: 550px;
 `;
 
 const Content = styled.div`
     margin-bottom: 10vw;
     width: 100%;
     position: relative;
-    min-height: 100vh;
+    min-height: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    padding: 80px 40px;
-    height: 100%;
 `;
 
 const Logo = styled.div`
@@ -64,7 +78,21 @@ const Logo = styled.div`
 `;
 
 const CardsHolder = styled.div`
-    
+    width: 70%;
+    background-color: white;
+    margin-top: 40px;
+    //z-index: -1;
+    border-style: none;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 50px;
+    padding: 50px;
 `;
+
+const Paragraph = styled.div`
+
+`;
+
 
 export default Home;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Filter = () => {
     return (
         <FilterHolder>
-            <Input />
+            <Input placeholder='Nome do Pokémon' />
             <Select>
                 <ul>
                     <li><a href="#">Item 1</a></li>
@@ -41,7 +41,8 @@ const Input = styled.input`
     height: 40px;
     border: solid 1px;
     border-radius: 4px;
-    text-align: inherit;
+    text-align: left;
+    text-indent:20px;
     background-color: white;
 
     &:focus {
@@ -51,27 +52,29 @@ const Input = styled.input`
 `;
 
 const Select = styled.div`
-    max-width: 100%;
+    width: 100%;
     height: 40px;
-    border: solid 1px;
+    border-style: none;
     border-radius: 4px;
     text-align: inherit;
     background-color: white;
 
     ul {
         display: none;
+        border-radius: inherit;
+        width: 100%;
     }
 
     &:hover {
         ul {
             display: block;
-            background: white;
-            border-radius: 4px;
+            background: #f2f2f2;
 
             li {
                 padding: 10px;
                 border-bottom: 1px solid black;
                 list-style-type: none;
+                width: 100%;
 
                 a {
                     text-decoration: none;
