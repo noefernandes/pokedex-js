@@ -34,6 +34,7 @@ const FilterHolder = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 8px;
+    z-index: 1;
 `;
 
 const Input = styled.input`
@@ -43,7 +44,7 @@ const Input = styled.input`
     border-radius: 4px;
     text-align: left;
     text-indent:20px;
-    background-color: white;
+    background-color: #f2f2f2;
 
     &:focus {
         outline-style: solid;
@@ -57,7 +58,7 @@ const Select = styled.div`
     border-style: none;
     border-radius: 4px;
     text-align: inherit;
-    background-color: white;
+    background-color: #f2f2f2;
 
     ul {
         display: none;
@@ -78,14 +79,14 @@ const Select = styled.div`
 
                 a {
                     text-decoration: none;
-                    color: black;
+                    color: #262626;
                 }
 
                 &:hover {
                     background: hsl(240, 60%, 50%);
                     
                     a {
-                        color: white;
+                        color: #f2f2f2;
                     }
                 }
             }
