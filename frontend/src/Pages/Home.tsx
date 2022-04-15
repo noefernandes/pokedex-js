@@ -7,20 +7,25 @@ import api from '../Service/api';
 import TekoSemiBold from '../assets/fonts/Teko-Bold.ttf';
 import TekoMedium from '../assets/fonts/Teko-Medium.ttf';
 import { useSelector } from 'react-redux';
-import { selectFilterNames } from '../Features/filterNamesSlice';
+import { selectFilterNames, selectInputName } from '../Features/pokemonSlice';
 
 
 const Home = () => {
 
     const [pokemonList, setPokemonList] = useState<any[]>([]);
     const filterNames = useSelector(selectFilterNames);
+    const inputName = useSelector(selectInputName);
 
     useEffect(() => {
         console.log({type1: filterNames.filterNames[0], type2: filterNames.filterNames[1]});
-        api.get('/pokemon', { params: { filters: [filterNames.filterNames[0], filterNames.filterNames[1]] }}).then((response) => {
-            setPokemonList(response.data);
+        api.get('/pokemon', { 
+            params: { filters: [filterNames.filterNames[0], filterNames.filterNames[1]], 
+                        inputName: inputName.inputName               
+                    }
+        }).then((response) => {
+                setPokemonList(response.data);
         });
-    }, [filterNames]);
+    }, [filterNames.filterNames, inputName.inputName]);
 
     return (
     <Fragment>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 import { useDispatch } from 'react-redux';
-import { setFilterNames } from '../Features/filterNamesSlice';
+import { setFilterNames } from '../Features/pokemonSlice';
 
 const animatedComponents = makeAnimated();
 

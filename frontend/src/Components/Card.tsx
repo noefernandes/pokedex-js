@@ -87,6 +87,7 @@ const Holder = styled.div`
     overflow: hidden;
     transition: .3s;
     width: 100%;
+    max-height: 350px;
     font-family: TekoSemiBold;
 
     &:hover {

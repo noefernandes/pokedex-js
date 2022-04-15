@@ -1,10 +1,24 @@
 import styled from 'styled-components';
 import MultiSelect from './MultiSelect';
+import { useDispatch } from 'react-redux';
+import { setInputName } from '../Features/pokemonSlice';
 
 const Filter = () => {
+
+    const dispatch = useDispatch();
+
+    const handleChange = (e: React.ChangeEvent) => {
+        const target = e.target as HTMLTextAreaElement;
+        console.log(target.value);
+        dispatch(setInputName({ inputName: target.value }));
+    }
+
     return (
         <FilterHolder>
-            <Input placeholder='Nome do Pokémon...' />
+            <Input 
+                placeholder='Nome do Pokémon...' 
+                onChange={(item) => handleChange(item)}
+            />
             <MultiSelect />
         </FilterHolder>
     );
