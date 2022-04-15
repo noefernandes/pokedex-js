@@ -9,16 +9,15 @@ readCSV().then(data => {
 }) ;
 
 router.get('/pokemon', (req, res) => { 
-    const filters = req.body.filters;
+    const filters = req.query.filters;
+
+    console.log(filters)
 
     const filteredList = pokemonList.filter(pokemon => {
         let result = true;
-        for(let key in filters) {
-            if (pokemon[key] !== filters[key]){
-                result = false;
-                break;
-            }
-        }
+        if(filters[0] !== pokemon['type1'] && filters[0] !== pokemon['type2'] && filters[1] === 'undefined' && filters[0] !== 'undefined')
+            result = false;
+        
 
         return result;
     });

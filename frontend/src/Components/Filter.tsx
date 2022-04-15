@@ -1,30 +1,11 @@
 import styled from 'styled-components';
+import MultiSelect from './MultiSelect';
 
 const Filter = () => {
     return (
         <FilterHolder>
-            <Input placeholder='Nome do Pokémon' />
-            <Select>
-                <ul>
-                    <li><a href="#">Item 1</a></li>
-                    <li><a href="#">Item 2</a></li>
-                    <li><a href="#">Item 3</a></li>
-                </ul>
-            </Select>
-            <Select>
-                <ul>
-                    <li><a href="#">Item 1</a></li>
-                    <li><a href="#">Item 2</a></li>
-                    <li><a href="#">Item 3</a></li>
-                </ul>
-            </Select>
-            <Select>
-                <ul>
-                    <li><a href="#">Item 1</a></li>
-                    <li><a href="#">Item 2</a></li>
-                    <li><a href="#">Item 3</a></li>
-                </ul>    
-            </Select> 
+            <Input placeholder='Nome do Pokémon...' />
+            <MultiSelect />
         </FilterHolder>
     );
 }
@@ -39,58 +20,17 @@ const FilterHolder = styled.div`
 
 const Input = styled.input`
     width: 100%;
-    height: 40px;
-    border: solid 1px;
+    height: auto;
+    border-style: none;
     border-radius: 4px;
     text-align: left;
     text-indent:20px;
     background-color: #f2f2f2;
+    font-family: TekoMedium;
+    font-size: 22px;
 
     &:focus {
         outline-style: solid;
-        border: 1px solid black;
-    }
-`;
-
-const Select = styled.div`
-    width: 100%;
-    height: 40px;
-    border-style: none;
-    border-radius: 4px;
-    text-align: inherit;
-    background-color: #f2f2f2;
-
-    ul {
-        display: none;
-        border-radius: inherit;
-        width: 100%;
-    }
-
-    &:hover {
-        ul {
-            display: block;
-            background: #f2f2f2;
-
-            li {
-                padding: 10px;
-                border-bottom: 1px solid black;
-                list-style-type: none;
-                width: 100%;
-
-                a {
-                    text-decoration: none;
-                    color: #262626;
-                }
-
-                &:hover {
-                    background: hsl(240, 60%, 50%);
-                    
-                    a {
-                        color: #f2f2f2;
-                    }
-                }
-            }
-        }
     }
 `;
 
