@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
-import { createContext, Fragment, useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import Filter from '../Components/Filter';
 import Card from '../Components/Card'; 
 import api from '../Service/api'; 
