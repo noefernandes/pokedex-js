@@ -30,6 +30,10 @@ const FilterHolder = styled.div`
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 8px;
     z-index: 1;
+
+    @media(max-width: 678px){
+        display: block;
+    }
 `;
 
 const Input = styled.input`
@@ -38,13 +42,18 @@ const Input = styled.input`
     border-style: none;
     border-radius: 4px;
     text-align: left;
-    text-indent:20px;
+    text-indent: 10px;
     background-color: #f2f2f2;
     font-family: TekoMedium;
     font-size: 22px;
 
     &:focus {
         outline-style: solid;
+    }
+
+    @media(max-width: 678px){
+        height: 40px;
+        margin-bottom: 10px;
     }
 `;
 

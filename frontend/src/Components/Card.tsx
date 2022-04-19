@@ -81,17 +81,29 @@ const Card = (props: data) => {
 }
 
 const Holder = styled.div`
+    position: relative;
     display: inline-block;
     background-color: #808080;
     border-radius: 10px;
     overflow: hidden;
     transition: .3s;
     width: 100%;
-    max-height: 350px;
     font-family: TekoSemiBold;
 
     &:hover {
         background-color:  #595959;
+    }
+
+    @media(max-width: 678px){
+        width: 200px;
+    }
+
+    @media(max-width: 300px){
+        width: 150px;
+    }
+
+    @media(max-width: 240px){
+        display: none;
     }
 `;
 
@@ -103,6 +115,7 @@ const Photo = styled.img`
 
 const Info = styled.div`
     display: inline-block;
+    height: auto;
     width: 100%;
 `;
 

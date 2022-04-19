@@ -3,6 +3,7 @@ import { createContext, Fragment, useEffect, useState } from 'react';
 import Filter from '../Components/Filter';
 import Card from '../Components/Card'; 
 import api from '../Service/api'; 
+import logo from '../assets/logo.png';
 
 import TekoSemiBold from '../assets/fonts/Teko-Bold.ttf';
 import TekoMedium from '../assets/fonts/Teko-Medium.ttf';
@@ -33,7 +34,7 @@ const Home = () => {
         <Container>
             <Content>
                 <Logo>
-                    <img src="https://fontmeme.com/permalink/220410/1a1f29c701177dd30989f60fbfeae75e.png" alt="logo"></img>
+                    <img src={logo} alt="logo"></img>
                 </Logo>
                 <Filter />
                 <CardsHolder>
@@ -115,8 +116,8 @@ const Logo = styled.div`
 `;
 
 const CardsHolder = styled.div`
+    position: relative;
     width: 70%;
-    min-height: 100vh;
     background-color: #f2f2f2;
     margin-top: 40px;
     z-index: 0;
@@ -126,6 +127,12 @@ const CardsHolder = styled.div`
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 50px;
     padding: 50px;
+
+    @media(max-width: 678px){
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 `;
 
 

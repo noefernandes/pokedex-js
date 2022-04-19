@@ -44,13 +44,13 @@ const options: OptionType[] = [
         height: 'auto',
         backgroundColor: '#f2f2f2',
         fontSize: 20,
-        textAlign: 'left'
+        textAlign: 'left',
     }),
     multiValue: (provided: any, state: any) => ({
         ...provided,
         backgroundColor: '#808080',
         color: 'white',
-        height: 30,
+        height: 30
     }),
   }
 

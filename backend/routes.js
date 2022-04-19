@@ -10,24 +10,22 @@ readCSV().then(data => {
 
 router.get('/pokemon', (req, res) => { 
     const filters = req.query.filters;
-
-    console.log(filters)
+    const inputName = req.query.inputName;
 
     const filteredList = pokemonList.filter(pokemon => {
         let result = true;
         if(filters[0] !== pokemon['type1'] && filters[0] !== pokemon['type2'] && filters[1] === 'undefined' && filters[0] !== 'undefined')
             result = false;
+        else if((filters[0] !== 'undefined' && filters[1] !== 'undefined') && 
+                ((filters[0] !== pokemon['type1'] && filters[0] !== pokemon['type2']) || 
+                (filters[1] !== pokemon['type1'] && filters[1] !== pokemon['type2'])))
+            result = false;
         
-
         return result;
     });
 
-    res.send(filteredList);
-});
+    pokemon = filteredList.filter(pokemon => pokemon.name.toLowerCase().startsWith(inputName.toLowerCase()));
 
-router.get('/pokemon/:id', async (req, res)  => {
-    const { id } = req.params;
-    const pokemon = pokemonList.filter(pokemon => pokemon.name === id);
     res.send(pokemon);
 });
 
